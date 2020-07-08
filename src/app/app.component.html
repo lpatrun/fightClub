@@ -14,6 +14,15 @@
     </button>
   </div>
 
+  <div *ngIf="!semiFinalsButton">
+    <ul class="newTournament">
+      <li class="newTournament__item" *ngFor="let monster of monsters"
+      [ngClass]="{'won': monster.semiFinals == '2', 'lost': monster.semiFinals < '2' }">
+        {{ monster.name }} - {{ monster.semiFinals }}
+      </li>
+    </ul>
+  </div>
+
   <div class="tournament">
     <ul class="tournament__list-group">
       <li class="tournament__list-group-item" *ngFor="let monsterPair of monsterPairs">{{ monsterPair }}</li>
@@ -40,7 +49,7 @@
 
   <div class="tournament">
     <ul class="tournament__list-group">
-      <li class="tournament__list-group-item" *ngFor="let finalResult of finalsResultPair">{{ finalResult }}</li>
+      <li class="tournament__list-group-item" *ngIf="finalsResultPair.length > 1">{{ finalsResultPair }}</li>
     </ul>
   </div>
 

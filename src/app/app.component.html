@@ -14,32 +14,55 @@
     </button>
   </div>
 
-  <div *ngIf="!semiFinalsButton">
-    <ul class="newTournament">
-      <li class="newTournament__item" *ngFor="let monster of monsters"
-      [ngClass]="{'won': monster.semiFinals == '2', 'lost': monster.semiFinals < '2' }">
-        {{ monster.name }} - {{ monster.semiFinals }}
+  <div *ngIf="!semiFinalsButton && semiFinalsHeros.length > 0">
+    <ul>
+      <li class="newTournament" *ngFor="let pair of semiFinalsHeros">
+        <div class="newTournament__image">
+          <img [src]="pair.imageOne" [alt]="pair.heroOne">
+        </div>
+        <div class="newTournament__hero-name">
+          {{ pair.heroOne }}
+        </div>
+        <div class="newTournament__scoreboard">
+          <p>VS</p>
+          <p>{{ pair.resultOne }} : {{ pair.resultTwo }}</p>
+        </div>
+        <div class="newTournament__hero-name">
+          {{ pair.heroTwo }}
+        </div>
+        <div class="newTournament__image">
+          <img [src]="pair.imageTwo" [alt]="pair.heroTwo">
+        </div>
       </li>
     </ul>
   </div>
-
-  <div class="tournament">
-    <ul class="tournament__list-group">
-      <li class="tournament__list-group-item" *ngFor="let monsterPair of monsterPairs">{{ monsterPair }}</li>
-    </ul>
-  </div>
-
 
   <div class="button-container">
     <button class="btn" (click)="toHalfFinals()" *ngIf="!semiFinalsButton"
       [disabled]="!halfFinalsButton">Polufinale</button>
   </div>
 
-  <div class="tournament">
-    <ul class="tournament__list-group">
-      <li class="tournament__list-group-item" *ngFor="let halfFinalsPair of halfFinalsPairs">{{ halfFinalsPair }}</li>
+  <div *ngIf="halfFinalsHeros.length > 0">
+    <ul>
+      <li class="newTournament" *ngFor="let pair of halfFinalsHeros">
+        <div class="newTournament__image">
+          <img [src]="pair.imageOne" [alt]="pair.heroOne">
+        </div>
+        <div class="newTournament__hero-name">
+          {{ pair.heroOne }}
+        </div>
+        <div class="newTournament__scoreboard">
+          <p>VS</p>
+          <p>{{ pair.resultOne }} : {{ pair.resultTwo }}</p>
+        </div>
+        <div class="newTournament__hero-name">
+          {{ pair.heroTwo }}
+        </div>
+        <div class="newTournament__image">
+          <img [src]="pair.imageTwo" [alt]="pair.heroTwo">
+        </div>
+      </li>
     </ul>
-
   </div>
 
   <div class="button-container">
@@ -47,9 +70,26 @@
       [disabled]="!finalsButton">Finale</button>
   </div>
 
-  <div class="tournament">
-    <ul class="tournament__list-group">
-      <li class="tournament__list-group-item" *ngIf="finalsResultPair.length > 1">{{ finalsResultPair }}</li>
+  <div *ngIf="fullFinalsHeros.length > 0">
+    <ul>
+      <li class="newTournament" *ngFor="let pair of fullFinalsHeros">
+        <div class="newTournament__image">
+          <img [src]="pair.imageOne" [alt]="pair.heroOne">
+        </div>
+        <div class="newTournament__hero-name">
+          {{ pair.heroOne }}
+        </div>
+        <div class="newTournament__scoreboard">
+          <p>VS</p>
+          <p>{{ pair.resultOne }} : {{ pair.resultTwo }}</p>
+        </div>
+        <div class="newTournament__hero-name">
+          {{ pair.heroTwo }}
+        </div>
+        <div class="newTournament__image">
+          <img [src]="pair.imageTwo" [alt]="pair.heroTwo">
+        </div>
+      </li>
     </ul>
   </div>
 

@@ -1,0 +1,109 @@
+.sideBySideContainer
+  display: grid
+  grid-template-columns: 4fr 1fr
+  grid-gap: 50px
+
+
+.main-title
+  margin: 30px auto 50px auto
+  text-align: center
+  
+.heros-grid
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  grid-gap: 30px
+
+  &__hero
+    width: 70%
+    margin: 0 auto
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5)
+    padding: 15px 0px
+    text-align: center
+    cursor: pointer
+
+    img
+      width: 70px
+  
+.winner-card
+  width: 60%
+  margin: 50px auto 0 auto
+  margin-bottom: 100px
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5)
+  padding: 25px
+
+  h2
+    margin: 0 auto 25px auto
+
+  &__hero
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    grid-gap: 15px
+
+    img
+      width: 300px
+      margin: 0 auto
+
+.button-container
+  text-align: center
+  margin: 50px
+
+.btn
+  cursor: pointer
+  color: #fff
+  background-color: #0062cc
+  border-color: #005cbf
+  border: 1px solid transparent
+  padding: 15px 20px
+  font-size: 1rem
+  line-height: 1.5
+  border-radius: 2px
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
+
+  &:hover
+    background-color: #0069d9
+    border-color: #0062cc
+  
+  &:disabled
+    background-color: #6a95c3
+    border-color: #628dbb
+    cursor: not-allowed
+
+.tournament
+  margin: 0 auto
+  text-align: center
+
+  &__list-group
+
+    &-item
+      margin: 15px auto
+
+.newTournament
+  width: 50%
+  margin: 20px auto
+  text-align: center
+  display: grid
+  grid-template-columns: repeat(5, 1fr)
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4)
+
+  &__image
+    display: flex
+    align-items: center
+    justify-content: center
+
+  img
+    height: 50px
+    
+
+  &__hero-name
+    font-size: 22px
+    align-self: center
+
+  &__scoreboard
+    align-self: center
+    
+
+.lost
+  color: red
+
+.won
+  color: green

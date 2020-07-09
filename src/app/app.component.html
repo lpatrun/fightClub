@@ -1,5 +1,6 @@
 <div class="container">
-  <div class="main-title">
+  <router-outlet></router-outlet>
+  <!-- <div class="main-title">
     <h1>Heros</h1>
   </div>
   <div class="heros-grid">
@@ -72,7 +73,7 @@
 
   <div *ngIf="fullFinalsHeros.length > 0">
     <ul>
-      <li class="newTournament" *ngFor="let pair of fullFinalsHeros">
+      <li class="newTournament" *ngFor="let pair of fullFinalsHeros; let i = index">
         <div class="newTournament__image">
           <img [src]="pair.imageOne" [alt]="pair.heroOne">
         </div>
@@ -112,5 +113,5 @@
   <br><br>
   <div class="button-container">
     <button class="btn" (click)="toNewTournament()" *ngIf="playAgain">Novi turnir</button>
-  </div>
+  </div> -->
 </div>

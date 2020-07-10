@@ -5,10 +5,16 @@
       <h1>Heros</h1>
     </div>
     <div class="heros-grid">
-      <a class="heros-grid__hero" *ngFor="let monster of monsters; let i = index" [routerLink]="i">
+      <!-- <a class="heros-grid__hero" *ngFor="let monster of monsters; let i = index" [routerLink]="i">
         <p>{{ monster.name }}</p>
         <img [src]="monster.image.url" alt="Error">
-      </a>
+      </a> -->
+
+      <app-hero-item
+      *ngFor="let monster of monsters; let i = index"
+      [hero]="monster"
+      [index]="i"></app-hero-item>
+
     </div>
     <div class="button-container">
       <button class="btn" (click)="toSemiFinals()" [disabled]="monsters && !semiFinalsButton">

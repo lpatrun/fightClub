@@ -9,13 +9,15 @@ import { SingleHeroComponent } from './single-hero/single-hero.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TournamentComponent } from './tournament/tournament.component';
 import { StartHeroComponent } from './start-hero/start-hero.component';
+import { HeroItemComponent } from './hero-item/hero-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SingleHeroComponent,
     TournamentComponent,
-    StartHeroComponent
+    StartHeroComponent,
+    HeroItemComponent
   ],
   imports: [
     BrowserModule,

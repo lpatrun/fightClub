@@ -1,0 +1,92 @@
+{
+  "configVersion": 1,
+  "timestamp": 1597918829732,
+  "index": "https://lpatrun.github.io/fightClub/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://lpatrun.github.io/fightClub/favicon.ico",
+        "https://lpatrun.github.io/fightClub/index.html",
+        "https://lpatrun.github.io/fightClub/main-es2015.e68ad6ebb0aef58d4cb5.js",
+        "https://lpatrun.github.io/fightClub/main-es5.e68ad6ebb0aef58d4cb5.js",
+        "https://lpatrun.github.io/fightClub/manifest.webmanifest",
+        "https://lpatrun.github.io/fightClub/polyfills-es2015.f332a089ad1600448873.js",
+        "https://lpatrun.github.io/fightClub/polyfills-es5.177e85a9724683782539.js",
+        "https://lpatrun.github.io/fightClub/runtime-es2015.0dae8cbc97194c7caed4.js",
+        "https://lpatrun.github.io/fightClub/runtime-es5.0dae8cbc97194c7caed4.js",
+        "https://lpatrun.github.io/fightClub/styles.34de797c594e5e4c6f42.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://lpatrun.github.io/fightClub/assets/icons/icon-128x128.png",
+        "https://lpatrun.github.io/fightClub/assets/icons/icon-144x144.png",
+        "https://lpatrun.github.io/fightClub/assets/icons/icon-152x152.png",
+        "https://lpatrun.github.io/fightClub/assets/icons/icon-192x192.png",
+        "https://lpatrun.github.io/fightClub/assets/icons/icon-384x384.png",
+        "https://lpatrun.github.io/fightClub/assets/icons/icon-512x512.png",
+        "https://lpatrun.github.io/fightClub/assets/icons/icon-72x72.png",
+        "https://lpatrun.github.io/fightClub/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "heros",
+      "patterns": [
+        "https:\\/\\/www\\.superheroapi\\.com\\/api\\.php\\/10220957965592385\\/[^/]*"
+      ],
+      "strategy": "freshness",
+      "maxSize": 100,
+      "maxAge": 300000,
+      "timeoutMs": 3000,
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "https://lpatrun.github.io/fightClub/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "https://lpatrun.github.io/fightClub/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "https://lpatrun.github.io/fightClub/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "https://lpatrun.github.io/fightClub/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "https://lpatrun.github.io/fightClub/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "https://lpatrun.github.io/fightClub/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "https://lpatrun.github.io/fightClub/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "https://lpatrun.github.io/fightClub/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "https://lpatrun.github.io/fightClub/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "https://lpatrun.github.io/fightClub/index.html": "c3e3725aef3e08f409d4c44011fa3bd72973e018",
+    "https://lpatrun.github.io/fightClub/main-es2015.e68ad6ebb0aef58d4cb5.js": "cf3891e4451dfc51b8e485bd767f803ab74476eb",
+    "https://lpatrun.github.io/fightClub/main-es5.e68ad6ebb0aef58d4cb5.js": "ca712c28e32a7d367459d41a5d2464532fd6db2c",
+    "https://lpatrun.github.io/fightClub/manifest.webmanifest": "5684702b03c5c64823305fad02f885b4d609c729",
+    "https://lpatrun.github.io/fightClub/polyfills-es2015.f332a089ad1600448873.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
+    "https://lpatrun.github.io/fightClub/polyfills-es5.177e85a9724683782539.js": "8aa26ea87b9958c6bd13b7c257c0e9940438e684",
+    "https://lpatrun.github.io/fightClub/runtime-es2015.0dae8cbc97194c7caed4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "https://lpatrun.github.io/fightClub/runtime-es5.0dae8cbc97194c7caed4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "https://lpatrun.github.io/fightClub/styles.34de797c594e5e4c6f42.css": "165c53d463e8017dc9093f722eeee5d54a020a28"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
 import { SingleHeroComponent } from './single-hero/single-hero.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TournamentComponent } from './tournament/tournament.component';
 import { StartHeroComponent } from './start-hero/start-hero.component';
 import { HeroItemComponent } from './hero-item/hero-item.component';
+import { HeroService } from './hero.service';
+import { HeroPairComponent } from './hero-pair/hero-pair.component';
 
 @NgModule({
   declarations: [
@@ -17,15 +17,15 @@ import { HeroItemComponent } from './hero-item/hero-item.component';
     SingleHeroComponent,
     TournamentComponent,
     StartHeroComponent,
-    HeroItemComponent
+    HeroItemComponent,
+    HeroPairComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     AppRoutingModule
   ],
-  providers: [],
+  providers: [HeroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

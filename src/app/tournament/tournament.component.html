@@ -2,13 +2,9 @@
 
   <div>
     <div class="main-title">
-      <h1>Heros</h1>
+      <h1 [routerLink]="['']" style="cursor: pointer; outline: none;">Heros</h1>
     </div>
     <div class="heros-grid">
-      <!-- <a class="heros-grid__hero" *ngFor="let monster of monsters; let i = index" [routerLink]="i">
-        <p>{{ monster.name }}</p>
-        <img [src]="monster.image.url" alt="Error">
-      </a> -->
 
       <app-hero-item
       *ngFor="let monster of monsters; let i = index"
@@ -24,24 +20,7 @@
 
     <div *ngIf="!semiFinalsButton && semiFinalsHeros.length > 0">
       <ul>
-        <li class="newTournament" *ngFor="let pair of semiFinalsHeros">
-          <div class="newTournament__image">
-            <img [src]="pair.imageOne" [alt]="pair.heroOne">
-          </div>
-          <div class="newTournament__hero-name">
-            {{ pair.heroOne }}
-          </div>
-          <div class="newTournament__scoreboard">
-            <p>VS</p>
-            <p>{{ pair.resultOne }} : {{ pair.resultTwo }}</p>
-          </div>
-          <div class="newTournament__hero-name">
-            {{ pair.heroTwo }}
-          </div>
-          <div class="newTournament__image">
-            <img [src]="pair.imageTwo" [alt]="pair.heroTwo">
-          </div>
-        </li>
+        <app-hero-pair *ngFor="let pair of semiFinalsHeros" [pair]="pair"></app-hero-pair>
       </ul>
     </div>
 
@@ -52,24 +31,7 @@
 
     <div *ngIf="halfFinalsHeros.length > 0">
       <ul>
-        <li class="newTournament" *ngFor="let pair of halfFinalsHeros">
-          <div class="newTournament__image">
-            <img [src]="pair.imageOne" [alt]="pair.heroOne">
-          </div>
-          <div class="newTournament__hero-name">
-            {{ pair.heroOne }}
-          </div>
-          <div class="newTournament__scoreboard">
-            <p>VS</p>
-            <p>{{ pair.resultOne }} : {{ pair.resultTwo }}</p>
-          </div>
-          <div class="newTournament__hero-name">
-            {{ pair.heroTwo }}
-          </div>
-          <div class="newTournament__image">
-            <img [src]="pair.imageTwo" [alt]="pair.heroTwo">
-          </div>
-        </li>
+        <app-hero-pair *ngFor="let pair of halfFinalsHeros" [pair]="pair"></app-hero-pair>
       </ul>
     </div>
 
@@ -80,24 +42,7 @@
 
     <div *ngIf="fullFinalsHeros.length > 0">
       <ul>
-        <li class="newTournament" *ngFor="let pair of fullFinalsHeros; let i = index">
-          <div class="newTournament__image">
-            <img [src]="pair.imageOne" [alt]="pair.heroOne">
-          </div>
-          <div class="newTournament__hero-name">
-            {{ pair.heroOne }}
-          </div>
-          <div class="newTournament__scoreboard">
-            <p>VS</p>
-            <p>{{ pair.resultOne }} : {{ pair.resultTwo }}</p>
-          </div>
-          <div class="newTournament__hero-name">
-            {{ pair.heroTwo }}
-          </div>
-          <div class="newTournament__image">
-            <img [src]="pair.imageTwo" [alt]="pair.heroTwo">
-          </div>
-        </li>
+        <app-hero-pair *ngFor="let pair of fullFinalsHeros" [pair]="pair"></app-hero-pair>
       </ul>
     </div>
 

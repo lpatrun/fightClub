@@ -5,8 +5,9 @@ import { TournamentComponent } from './tournament/tournament.component';
 import { StartHeroComponent } from './start-hero/start-hero.component';
 
 const appRoutes: Routes = [
+  { path: '',   redirectTo: '/heroes', pathMatch: 'full' },
   {
-    path: '', component: TournamentComponent, children: [
+    path: 'heroes', component: TournamentComponent, children: [
       { path: '', component: StartHeroComponent },
       { path: ':id', component: SingleHeroComponent }
     ]

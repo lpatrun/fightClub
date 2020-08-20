@@ -1,31 +1,32 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero.model';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-single-hero',
   templateUrl: './single-hero.component.html',
   styleUrls: ['./single-hero.component.sass']
 })
-export class SingleHeroComponent implements OnInit, OnDestroy {
+export class SingleHeroComponent implements OnInit {
   id: number;
-  sub: Subscription;
+  hero: Hero;
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private heroService: HeroService,
+    private router: Router
   ) { }
 
-  ngOnInit(){
-    this.sub = this.route.params.subscribe(
+  ngOnInit() {
+    this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['id'];
+        this.hero = this.heroService.getHero(this.id);
+        if(!this.hero) {
+          this.router.navigate(['/']);
+        }
       }
     );
   }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
-
 }

@@ -1,0 +1,18 @@
+<li class="newTournament">
+  <div class="newTournament__image">
+    <img [src]="pair.imageOne" [alt]="pair.heroOne">
+  </div>
+  <div class="newTournament__hero-name">
+    {{ pair.heroOne }}
+  </div>
+  <div class="newTournament__scoreboard">
+    <p>VS</p>
+    <p>{{ pair.resultOne }} : {{ pair.resultTwo }}</p>
+  </div>
+  <div class="newTournament__hero-name">
+    {{ pair.heroTwo }}
+  </div>
+  <div class="newTournament__image">
+    <img [src]="pair.imageTwo" [alt]="pair.heroTwo">
+  </div>
+</li>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { HeroService } from '../hero.service';
 import { Hero } from '../hero.model';
 import { Resultshero } from '../resultshero.model';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-tournament',
@@ -10,41 +12,33 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TournamentComponent implements OnInit {
   title = 'fightClub';
-  
+
   monsters: Hero[] = [];
-  semiFinalsButton: boolean = true;
-
   halfFinals: Hero[] = [];
-  halfFinalsButton: boolean = false;
-
   finalsArray: Hero[] = [];
-  finalsButton: boolean = false;
-
   finalsResult: Hero[] = [];
-
-  playAgain: boolean = false;
-
-  // za side-by-side ispis heroja jednog meča
   semiFinalsHeros: Resultshero[] = [];
   halfFinalsHeros: Resultshero[] = [];
   fullFinalsHeros: Resultshero[] = [];
+  
+  semiFinalsButton: boolean = true;
+  halfFinalsButton: boolean = false;
+  finalsButton: boolean = false;
+  playAgain: boolean = false;
 
-
-  constructor( private http: HttpClient ) { }
+  constructor(
+    private heroService: HeroService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.generateEightMonsters();
-  }
-  
-  generateEightMonsters() {
-    for (let i = 0; i < 8; i++) {
-      let id = Math.ceil(Math.random() * 731);
-      this.http.get<Hero>(
-        'https://www.superheroapi.com/api.php/10220957965592385/' + id
-      ).subscribe(fetchedPosts => (
-        this.monsters.push(fetchedPosts)
-      ));
-    }
+    this.heroService.generateEightMonsters();    
+    this.heroService.herosChanged
+    .subscribe(
+      (hero: Hero) => {
+        this.monsters.push(hero);
+      }
+    );
   }
 
   roundResult(firstHeroIndex: number, sourceContainer) {
@@ -66,6 +60,7 @@ export class TournamentComponent implements OnInit {
         heroTwoAttack += parseInt(this[sourceContainer][firstHeroIndex + 1].powerstats[ability]);
       }
     }
+
     if (heroOneAttack === heroTwoAttack) {
       return true;
     } else {
@@ -73,7 +68,7 @@ export class TournamentComponent implements OnInit {
     }
   }
 
-  generateResults(firstHeroIndex: number, sourceContainer, resultsContainer, tournamentStage) {
+  generateResults(firstHeroIndex: number, sourceContainer: string, resultsContainer: string, tournamentStage: string): void  {
     let firstHeroWins: number = 0;
     let secondHeroWins: number = 0;
     do {
@@ -98,22 +93,24 @@ export class TournamentComponent implements OnInit {
       this[sourceContainer][firstHeroIndex + 1].color = 'red';
     }
 
-    //to decide in which hero-pair container to save
-    let heroPairContainer = "";
+    const heroPairContainer = this.toChangeTournamentStage(tournamentStage);
+    this.toFillContainers (sourceContainer, heroPairContainer, firstHeroIndex, firstHeroWins, secondHeroWins);
+  }
+
+  toChangeTournamentStage (tournamentStage: string) {
     switch (tournamentStage) {
       case "semiFinals":
-        heroPairContainer = "semiFinalsHeros"
-        break;
+        return "semiFinalsHeros"
       case "halfFinals":
-        heroPairContainer = "halfFinalsHeros"
-        break;
+        return "halfFinalsHeros"
       case "endFinals":
-        heroPairContainer = "fullFinalsHeros"
-        break;
+        return "fullFinalsHeros"
       default:
-        heroPairContainer = "semiFinalsHeros"
+        return "semiFinalsHeros"
     }
+  }
 
+  toFillContainers (sourceContainer: string, heroPairContainer: string, firstHeroIndex: number, firstHeroWins, secondHeroWins) {
     this[heroPairContainer].push({
       "heroOne": this[sourceContainer][firstHeroIndex].name,
       "resultOne": firstHeroWins,
@@ -122,8 +119,6 @@ export class TournamentComponent implements OnInit {
       "resultTwo": secondHeroWins,
       "imageTwo": this[sourceContainer][firstHeroIndex + 1].image.url
     });
-
-    return (firstHeroWins + ":" + secondHeroWins);
   }
 
   toSemiFinals() {
@@ -133,54 +128,36 @@ export class TournamentComponent implements OnInit {
 
     this.semiFinalsButton = false;
     this.halfFinalsButton = true;
-
-    console.log("*** Četvrtfinale ***");
-    for (let i = 0; i < 7; i += 2) {
-      console.log(
-        `%c${this.monsters[i].name} %c- %c${this.monsters[i + 1].name} %c${this.monsters[i].semiFinals}:${this.monsters[i + 1].semiFinals}`,
-        `color: ${this.monsters[i].color}`, "color: black", `color:  ${this.monsters[i + 1].color}`, "color: black");
-    }
   }
 
   toHalfFinals() {
     for (let firstHeroIndex = 0; firstHeroIndex < 2; firstHeroIndex++) {
       this.generateResults(firstHeroIndex * 2, "halfFinals", "finalsArray", "halfFinals");
     }
+
     this.halfFinalsButton = false;
     this.finalsButton = true;
-
-    console.log("*** Polufinale ***");
-    for (let i = 0; i < 4; i += 2) {
-      console.log(
-        `%c${this.halfFinals[i].name} %c- %c${this.halfFinals[i + 1].name} %c${this.halfFinals[i].halfFinals}:${this.halfFinals[i + 1].halfFinals}`,
-        `color: ${this.halfFinals[i].color}`, "color: black", `color:  ${this.halfFinals[i + 1].color}`, "color: black");
-    }
   }
 
   toFinals() {
     this.generateResults(0, "finalsArray", "finalsResult", "endFinals");
     this.finalsButton = false;
     this.playAgain = true;
-
-    console.log("*** Finale ***");
-    console.log(
-      `%c${this.finalsArray[0].name} %c- %c${this.finalsArray[1].name} %c${this.finalsArray[0].endFinals}:${this.finalsArray[1].endFinals}`,
-      `color: ${this.finalsArray[0].color}`, "color: black", `color:  ${this.finalsArray[1].color}`, "color: black");
   }
 
   toNewTournament() {
     this.monsters = [];
-    this.semiFinalsButton = true;
     this.halfFinals = [];
-    this.halfFinalsButton = false;
     this.finalsArray = [];
-    this.finalsButton = false;
     this.finalsResult = [];
-    this.playAgain = false;
     this.semiFinalsHeros = [];
     this.halfFinalsHeros = [];
     this.fullFinalsHeros = [];
-    this.generateEightMonsters();
+    this.semiFinalsButton = true;
+    this.halfFinalsButton = false;
+    this.finalsButton = false;
+    this.playAgain = false;
+    this.heroService.generateEightMonsters();
+    this.router.navigate(['../heroes'], { relativeTo: this.route });
   }
-
 }

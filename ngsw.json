@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1597918829732,
+  "timestamp": 1598431665142,
   "index": "https://lpatrun.github.io/fightClub/index.html",
   "assetGroups": [
     {
@@ -10,8 +10,8 @@
       "urls": [
         "https://lpatrun.github.io/fightClub/favicon.ico",
         "https://lpatrun.github.io/fightClub/index.html",
-        "https://lpatrun.github.io/fightClub/main-es2015.e68ad6ebb0aef58d4cb5.js",
-        "https://lpatrun.github.io/fightClub/main-es5.e68ad6ebb0aef58d4cb5.js",
+        "https://lpatrun.github.io/fightClub/main-es2015.1408a7f357a56893459a.js",
+        "https://lpatrun.github.io/fightClub/main-es5.1408a7f357a56893459a.js",
         "https://lpatrun.github.io/fightClub/manifest.webmanifest",
         "https://lpatrun.github.io/fightClub/polyfills-es2015.f332a089ad1600448873.js",
         "https://lpatrun.github.io/fightClub/polyfills-es5.177e85a9724683782539.js",
@@ -61,9 +61,9 @@
     "https://lpatrun.github.io/fightClub/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "https://lpatrun.github.io/fightClub/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "https://lpatrun.github.io/fightClub/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://lpatrun.github.io/fightClub/index.html": "c3e3725aef3e08f409d4c44011fa3bd72973e018",
-    "https://lpatrun.github.io/fightClub/main-es2015.e68ad6ebb0aef58d4cb5.js": "cf3891e4451dfc51b8e485bd767f803ab74476eb",
-    "https://lpatrun.github.io/fightClub/main-es5.e68ad6ebb0aef58d4cb5.js": "ca712c28e32a7d367459d41a5d2464532fd6db2c",
+    "https://lpatrun.github.io/fightClub/index.html": "e3f00efbf3655d5e5931780feb46be674aed46d9",
+    "https://lpatrun.github.io/fightClub/main-es2015.1408a7f357a56893459a.js": "13081d66855ced5aa939a1ecb56c4fd311995d96",
+    "https://lpatrun.github.io/fightClub/main-es5.1408a7f357a56893459a.js": "98afe94196b8e68b3f3aac3a0663929fdf34468e",
     "https://lpatrun.github.io/fightClub/manifest.webmanifest": "5684702b03c5c64823305fad02f885b4d609c729",
     "https://lpatrun.github.io/fightClub/polyfills-es2015.f332a089ad1600448873.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
     "https://lpatrun.github.io/fightClub/polyfills-es5.177e85a9724683782539.js": "8aa26ea87b9958c6bd13b7c257c0e9940438e684",
